@@ -21,9 +21,9 @@ spring:
 
 
 
-  flyway:
-    installed-by: 'Kevin Janvier Chinabalire'
-    baseline-on-migrate: true
+#  flyway:
+#    installed-by: 'Kevin Janvier Chinabalire'
+#    baseline-on-migrate: true
 #    locations: 'classpath:/db/migration/public'
 
 logging:

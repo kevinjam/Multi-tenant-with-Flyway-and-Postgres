@@ -1,12 +1,15 @@
 package com.kevinjanvier.multitenant.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.*;
 
 @Slf4j
+@Component
 public class RequestInterceptor implements HandlerInterceptor {
 
     @Override
@@ -18,8 +21,10 @@ public class RequestInterceptor implements HandlerInterceptor {
         System.out.println("RequestURI::" + requestURI +" || Search for X-TenantID  :: " + tenantID);
         System.out.println("____________________________________________");
         if (tenantID == null) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.setContentType(MediaType.APPLICATION_JSON_VALUE);
             response.getWriter().write("X-TenantID not present in the Request Header");
-            response.setStatus(400);
+            response.getWriter().flush();
             return false;
         }
 

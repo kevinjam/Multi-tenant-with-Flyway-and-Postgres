@@ -49,7 +49,7 @@ public class UserController {
     public ResponseEntity<DataSourceConfig> login(@RequestBody DataSourceConfig dataSourceConfig,
                                                   @RequestHeader("X-TenantID") String Xtenant){
         DataSourceConfig config = configService.addDataSource(dataSourceConfig, Xtenant);
-//        log.info("data source configuration {} ", config);
+        log.info("data source configuration {} ", config);
 //        if (config!= null){
 //            try {
 //                Connection connect = configService.connect("localhost", 5432, "usercoding",

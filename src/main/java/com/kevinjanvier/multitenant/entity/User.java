@@ -21,8 +21,6 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @SequenceGenerator(name="pk_sequence",sequenceName="hibernate_sequence", allocationSize=1)
-//    @SequenceGenerator(name = "users_generator", sequenceName = "hibernate_sequence", allocationSize = 1)
     private Long id;
     private String fullName;
     private String email;
